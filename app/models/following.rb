@@ -6,7 +6,7 @@ class Following < ActiveRecord::Base
 
   def cannot_follow_self
     if follower == originator
-      errors.add(:followers, "You cannot follow yourself.")
+      errors.add(:followers, "cannot follow self.")
     end
   end
 end

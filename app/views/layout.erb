@@ -17,6 +17,23 @@
 
   <title></title>
 </head>
+
+<header>
+  <a href="/">LOGO</a>
+  <% if current_user%>
+    <a href="/auth/logout">
+      <button>Log Out</button>
+    </a>
+  <% else %>
+    <a href="/auth/login">
+      <button>Login</button>
+    </a>
+    <a href="/users/new">
+      <button>Sign Up</button>
+    </a>
+  <% end %>
+</header>
+
 <body>
   <%= yield %>
 </body>
