@@ -1,0 +1,24 @@
+<h1>Post Edit</h1>
+<h2>You may edit as you please;</h2>
+
+<span class="post-id" style="display: none"><%= @post.id %></span>
+
+<form action="/users/<%= current_user.id %>/posts/<%= @post.id %>" method="POST">
+  <input type="hidden" name="_method" value="put">
+    <textarea name="content"><%= @post.content %></textarea>
+
+  <ul>
+    <% @tags.each do |tag| %>
+      <li>
+        <input id="<%=tag.id %>" class="tag_checkbox" type="checkbox" name="tags[]" value="<%=tag.id %>" <% if @post.tags.ids.include?(tag.id)%> checked <% end %> >
+          <%= tag.content %>
+      <% end %>
+  </ul>
+
+  <input type="submit" value="Complete Edit">
+</form>
+
+<form action="/users/<%= current_user.id %>/posts/<%= @post.id %>" method="POST">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Post">
+</form>

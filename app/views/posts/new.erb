@@ -1,0 +1,11 @@
+<h1>New Amazing Post!</h1>
+<h2>You may write as you please;</h2>
+
+<form action="/users/<%= current_user.id %>/posts" method="POST">
+    <textarea name="content"></textarea>
+  <input type="submit" value="Share">
+
+  <% @tags.each do |tag| %>
+  <input type="checkbox" name="tags[]" value="<%=tag.id %>"> <%= tag.content %>
+  <% end %>
+</form>

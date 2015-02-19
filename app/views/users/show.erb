@@ -1,0 +1,18 @@
+<a href="/users/<%= current_user.id %>/edit">
+  <button>Edit Profile</button>
+</a>
+
+<h1> <%= @user.name %>, we welcome you to Assemblage.</h1>
+
+<a href="/users/<%= current_user.id %>/posts/new">Author New Post</a>
+
+<h2>Your posts:</h2>
+<ul>
+  <% current_user.posts.each do |post| %>
+    <li>
+      <a href="/users/<%= @user.id %>/posts/<%= post.id%>">
+        <%= post.content %>
+      </a>
+    </li>
+  <% end %>
+</ul>

@@ -1,7 +1,32 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  var postId = $(".post-id")[0].textContent
+  //use jquery to grab 
+  //post.id
+
+
+  $('.tag_checkbox').on('click', function(event) {
+
+    var response = $.ajax("/posts/" + postId + "/taggings", 
+      {
+        method: "post",
+        data: {tag_id: event.target.id },
+        success: function(message){
+          console.log(message)
+        }
+      })
+
+
+    });
+
+    // response.done( function() {
+    //   debugger
+    // });
+
+//   var response = $.ajax('/path', { url: "/posts",
+//                           method: "get"});
+
+//   response.done()
 });
+
+// event.preventDefault()
